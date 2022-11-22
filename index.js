@@ -1,50 +1,61 @@
 //prepping for word game "hangman"
-// trying to code on mobile
-const words = ['travel', 'playing', 'famous', 'gamer', 'tired', 'training'];
+const words = [
+  'travel',
+  'playing',
+  'famous',
+  'gamer',
+  'tired',
+  'training',
+  'bot',
+  'car',
+  'dog',
+  'house',
+  'dance',
+  'code',
+];
 
-/* var guessWord = words[1]
+let guesses = 6;
+let answer = words[Math.floor(Math.random() * words.length)];
 
-var inputWord = prompt("guess a word").toString()
-
-var wordLetters = inputWord.split("");
-
-var guessWordLetters = guessWord.split("");
-
-console.log("word: " + guessWord + "\ninputWord: " + inputWord + " \nword letter: " + wordLetters + " \ninput letters: " + guessWordLetters ); */
-
-let word = words[Math.floor(Math.random() * words.length)];
-
-const inputWord = 'famous'.toLowerCase();
-
-let wordLetterArr = [];
-let inputWordLetterArr = [];
-
-wordLetterArr = word.split('');
-
-inputWordLetterArr = inputWord.split('');
-
-console.log(
-  'this is the word:' +
-    wordLetterArr +
-    ' : ' +
-    'this is the guessed word: ' +
-    inputWordLetterArr
+const guess = prompt(
+  'Guess the word!' + '\nWord is ' + answer.length + ' characters long'
 );
 
-for (let i = 0, j = 0; i < wordLetterArr.length; i++, j++) {
-  if (wordLetterArr.includes(inputWordLetterArr[i])) {
+let guessArr = [];
+let answerArr = [];
+
+guessArr = guess.split('');
+
+answerArr = answer.split('');
+
+console.log(
+  'this is the answer:' +
+    answerArr +
+    ' : ' +
+    'this is the guessed word: ' +
+    guessArr
+);
+
+let ansArr = [];
+
+for (let letter of answer) {
+  letter = '_';
+  ansArr.push(letter);
+}
+
+console.log(ansArr);
+
+for (let i = 0, j = 0; i < guessArr.length; i++, j++) {
+  if (guessArr.includes(answerArr[i])) {
     console.log(
-      'these letters are right: ' +
-        inputWordLetterArr[i] +
-        ' : ' +
-        wordLetterArr[i]
+      'these letters are right: ' + guessArr[i] + ' : ' + answerArr[i]
     );
   } else {
     console.log(
       'these are not in the right spot or are wrong: ' +
-        inputWordLetterArr[i] +
+        answerArr[i] +
         ' : ' +
-        wordLetterArr[i]
+        guessArr[i]
     );
   }
 }

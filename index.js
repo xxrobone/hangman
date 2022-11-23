@@ -12,6 +12,9 @@ const words = [
   'house',
   'dance',
   'code',
+  'home',
+  'from',
+  'done',
 ];
 
 let guesses = 6;
@@ -24,38 +27,35 @@ const guess = prompt(
 let guessArr = [];
 let answerArr = [];
 
-guessArr = guess.split('');
+let showArr = [];
 
-answerArr = answer.split('');
-
-console.log(
-  'this is the answer:' +
-    answerArr +
-    ' : ' +
-    'this is the guessed word: ' +
-    guessArr
-);
-
-let ansArr = [];
-
-for (let letter of answer) {
-  letter = '_';
-  ansArr.push(letter);
+for (let l = 0; l < answer.length; l++) {
+  showArr[l] = '_';
 }
 
-console.log(ansArr);
+console.log(
+  'Letters of the word: ' +
+    showArr +
+    '\nis ' +
+    answer.length +
+    ' characters long ;)'
+);
 
-for (let i = 0, j = 0; i < guessArr.length; i++, j++) {
+guessArr = guess.split('');
+answerArr = answer.split('');
+
+console.log('this is the word = ' + answerArr.join());
+
+for (let i = 0, j = 0; i < answerArr.length; i++, j++) {
   if (guessArr.includes(answerArr[i])) {
     console.log(
       'these letters are right: ' + guessArr[i] + ' : ' + answerArr[i]
     );
-  } else {
-    console.log(
-      'these are not in the right spot or are wrong: ' +
-        answerArr[i] +
-        ' : ' +
-        guessArr[i]
-    );
   }
+  if (guessArr[i] == answerArr[i]) {
+    showArr[i] = answerArr[i];
+  } else {
+    console.log('these are not right: ' + guessArr[i]);
+  }
+  console.log(showArr);
 }

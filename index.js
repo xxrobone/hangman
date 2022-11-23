@@ -32,6 +32,7 @@ let answerArr = [];
 
 let showArr = [];
 let includedLettersArr = [];
+let usedLettersArr = [];
 
 for (let l = 0; l < answer.length; l++) {
   showArr[l] = '_';
@@ -65,8 +66,14 @@ for (let i = 0, j = 0; i < answerArr.length; i++, j++) {
   }
   if (guessArr[j] == answerArr[i]) {
     showArr[i] = answerArr[i];
-  } else {
-    console.log('these are not right: ' + guessArr[j]);
   }
-  console.log(showArr);
+  if (!guessArr.includes(answerArr[i])) {
+    console.log(
+      '%c These letters are wrong: ' + answerArr[i],
+      'color: red; background: black;'
+    );
+    usedLettersArr.push(guessArr[j]);
+  }
+  console.log('used letters: ' + usedLettersArr);
+  console.log('right letters ' + showArr);
 }

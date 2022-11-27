@@ -102,8 +102,8 @@ if (guesses === 0) {
   alert(
     'Good job buddy! The answer was ' +
       secretWord +
-      'Your guess was: ' +
-      alert(answerArr.join(' '))
+      '\nYour guess was: ' +
+      answerArr.join(' ')
   );
 }
 

@@ -45,10 +45,17 @@ alert(
 );
 
 // 5 player progress
+// ====================================================
+// get the guesses logic and some others to work, its not right yet.Have to work in this
+// =====================================================
 let guesses = 6;
 let remainingLetters = secretWord.length;
 
-while (remainingLetters > 0 && guesses >= 0) {
+// ====================================================
+// get the guesses logic and some others to work, its not right yet.Have to work in this
+// =====================================================
+
+while (remainingLetters > 0 && guesses > 0) {
   console.log(remainingLetters, answerArr);
   var regexCheckNumber = /^[0-9]+$/;
   var regexCheckLetter = /^[a-öA-Ö]+$/;
@@ -75,13 +82,25 @@ while (remainingLetters > 0 && guesses >= 0) {
   ) {
     alert('Please use letters only & one at a time');
   } else {
+    let noMatch = false;
     // update the game progress with the player guess
     for (let j = 0; j < secretWord.length; j++) {
-      if (secretWord[j] === playerGuess) {
+      if (secretWord[j] === playerGuess || !answerArr.includes(playerGuess)) {
         answerArr[j] = playerGuess;
         // remaining letters in the word
         remainingLetters--;
+      } else {
+        noMatch = true;
       }
+    }
+    // ====================================================
+    // get the guesses logic and some others to work, its not right yet.Have to work in this
+    // =====================================================
+    if (noMatch === false) {
+      break;
+    }
+    if (noMatch === true && guesses > 0) {
+      guesses--;
     }
   }
   // game loop ending

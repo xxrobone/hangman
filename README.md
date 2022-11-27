@@ -84,3 +84,4 @@ Have to get better at creating more functions for the different parts of the pro
 
 [vscode]: https://code.visualstudio.com/
 [html]: https://www.w3schools.com/html/
+[javascript]: https://www.javascript.com/

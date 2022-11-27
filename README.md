@@ -1,4 +1,4 @@
-# Hangman consoel game
+# Hangman console (alert) game
 
 ## A js console or window (alert, prompt, confirm) game 4 frontend at CME
 

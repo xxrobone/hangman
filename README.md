@@ -35,6 +35,11 @@ I have some logical issues that I learned a lot from and still working on.
 
 Have to get better at creating more functions for the different parts of the programs
 
+- Started with a wordle kind of guessing game in mind
+- changed to hangman kind with letter input instead of word input
+- Some logics dont fall naturally in to my thoughts but Im working on it
+- Learned a lot in this process and doing it over and over again. Still not where I wanna be in coding
+
 </br>
 
 ---
@@ -52,18 +57,6 @@ Have to get better at creating more functions for the different parts of the pro
 
 ---
 
-
-</br>
-
-# Issues, Thoughts
-
-- Started with a wordle kind of guessing game in mind
-- changed to hangman kind with letter input instead of word input
-- Some logics dont fall naturally in to my thoughts but Im working on it
-
-</br>
-
----
 
 </br>
 

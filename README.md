@@ -1,4 +1,4 @@
-# Road2Code
+# Hangman consoel game
 
 ## A js console or window (alert, prompt, confirm) game 4 frontend at CME
 

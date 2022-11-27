@@ -6,8 +6,7 @@
 // 5 Keep track of guesses and letters guessed
 // 6 show the player their progress
 // 7 Show the player if the word is right
-
-// game loop
+// 8 Create  game loop
 
 // 1
 const wordsArr = ['code', 'home', 'from', 'done', 'bros', 'show'];

@@ -51,7 +51,9 @@ alert(
   'Welcome! \nThis is a hangman word guessing game \nTo play continue with pressing OK' +
     '\nThe word is ' +
     answerArr +
-    'characters long'
+    ' : ' +
+    secretWord.length +
+    ' characters long'
 );
 
 //creating guesses variable with 6 chances
@@ -128,7 +130,7 @@ if (guesses === 0) {
     'Good job buddy! The answer was ' +
       secretWord +
       '\nYour guess was: ' +
-      answerArr.join(' ')
+      answerArr.join('').toUpperCase()
   );
 }
 

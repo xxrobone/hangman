@@ -132,6 +132,8 @@ if (guesses === 0) {
   );
 }
 
+// what i worked on before and keeping it here till i move it to a new project
+// ====================================================================================================================
 /* 
 console.log(
   'Letters of the word: ' +

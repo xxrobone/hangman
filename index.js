@@ -57,6 +57,7 @@ let remainingLetters = secretWord.length;
 
 while (remainingLetters > 0 && guesses > 0) {
   console.log(remainingLetters, answerArr);
+  let guessMatch;
   var regexCheckNumber = /^[0-9]+$/;
   var regexCheckLetter = /^[a-öA-Ö]+$/;
   // #6 show the player their progress
@@ -73,8 +74,20 @@ while (remainingLetters > 0 && guesses > 0) {
       remainingLetters
   );
   //
-  if (playerGuess === null) {
-    break;
+  if (secretWord.includes(playerGuess)) {
+    for (let j = 0; j < secretWord.length; j++) {
+      if (secretWord[j] === playerGuess) {
+        answerArr[j] = playerGuess;
+        // remaining letters in the word
+        remainingLetters--;
+        guessMatch = 'match';
+      }
+    }
+  } else if (playerGuess === null) {
+  /* else if (!secretWord.includes(playerGuess)) { 
+
+  } */
+    alert('No letter given, no input, no game.');
   } else if (
     playerGuess.length !== 1 ||
     (playerGuess === playerGuess) === regexCheckLetter ||
@@ -82,27 +95,18 @@ while (remainingLetters > 0 && guesses > 0) {
   ) {
     alert('Please use letters only & one at a time');
   } else {
-    let noMatch = false;
     // update the game progress with the player guess
-    for (let j = 0; j < secretWord.length; j++) {
-      if (secretWord[j] === playerGuess || !answerArr.includes(playerGuess)) {
-        answerArr[j] = playerGuess;
-        // remaining letters in the word
-        remainingLetters--;
-      } else {
-        noMatch = true;
-      }
-    }
-    // ====================================================
-    // get the guesses logic and some others to work, its not right yet.Have to work in this
-    // =====================================================
-    if (noMatch === false) {
-      break;
-    }
-    if (noMatch === true && guesses > 0) {
-      guesses--;
-    }
+    guessMatch = 'nomatch';
   }
+  // ===================================================
+  // get the guesses logic and some others to work, its not right yet.Have to work in this
+  // =====================================================
+  if (!guessMatch === 'match') {
+    break;
+  } else if (guessMatch === 'nomatch' && guesses > 0) {
+    guesses--;
+  }
+
   // game loop ending
 }
 

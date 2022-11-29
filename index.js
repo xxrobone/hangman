@@ -8,10 +8,15 @@
 // 7 Show the player if the word is right
 // 8 Create  game loop
 
-// 1
-const wordsArr = ['code', 'home', 'from', 'done', 'bros', 'show'];
-/* 
-'know',
+// only using 4 letter words, will change this later
+const wordsArr = [
+  'code',
+  'home',
+  'from',
+  'done',
+  'bros',
+  'show',
+  'know',
   'mode',
   'flow',
   'beat',
@@ -27,16 +32,21 @@ const wordsArr = ['code', 'home', 'from', 'done', 'bros', 'show'];
   'wife',
   'file',
   'mile',
-*/
+];
 
+// get a random word from the words array
 const secretWord = wordsArr[Math.floor(Math.random() * wordsArr.length)];
 
-//
+// creating an array to hold the right guessed letters
 let answerArr = [];
+// looing thru the secret word and adding to the array
+// so the player will see how many letters there is and
+// also show progress
 for (let i = 0; i < secretWord.length; i++) {
   answerArr[i] = '_';
 }
 
+// Alert to show the info of the game
 alert(
   'Welcome! \nThis is a hangman word guessing game \nTo play continue with pressing OK' +
     '\nThe word is ' +
@@ -44,25 +54,19 @@ alert(
     'characters long'
 );
 
-// 5 player progress
-// ====================================================
-// get the guesses logic and some others to work, its not right yet.Have to work in this
-// =====================================================
+//creating guesses variable with 6 chances
 let guesses = 6;
+// showing how many letter remain for the right word
 let remainingLetters = secretWord.length;
 
-// ====================================================
-// get the guesses logic and some others to work, its not right yet.Have to work in this
-// =====================================================
-
+// creating the game loop
 while (remainingLetters > 0 && guesses > 0) {
-  console.log(remainingLetters, answerArr);
+  // create a variable for boolean to later add true or false for guesses control
   let guessMatch;
+  // regex to check if input is letter or number
   var regexCheckNumber = /^[0-9]+$/;
   var regexCheckLetter = /^[a-öA-Ö]+$/;
-  // #6 show the player their progress
-  /* alert(answerArr.join(' ')); */
-  // #2 player guess, input or can choose to quit
+  // take the player input /guess as a variable
   let playerGuess = prompt(
     'Guess a letter!' +
       ' or click cancel to quit.' +
@@ -73,21 +77,21 @@ while (remainingLetters > 0 && guesses > 0) {
       '\nLetters remaining ' +
       remainingLetters
   );
-  //
+  // check if sercretword has playerguess in it
   if (secretWord.includes(playerGuess)) {
+    // looping over the secretWord and checking if the playerguessed letter is in the word and what position
     for (let j = 0; j < secretWord.length; j++) {
       if (secretWord[j] === playerGuess) {
         answerArr[j] = playerGuess;
-        // remaining letters in the word
+        // decrease remaining letters in the word
         remainingLetters--;
+        // guess is match so guesses remains
         guessMatch = 'match';
       }
     }
   } else if (playerGuess === null) {
-  /* else if (!secretWord.includes(playerGuess)) { 
-
-  } */
     alert('No letter given, no input, no game.');
+    continue;
   } else if (
     playerGuess.length !== 1 ||
     (playerGuess === playerGuess) === regexCheckLetter ||
@@ -95,12 +99,11 @@ while (remainingLetters > 0 && guesses > 0) {
   ) {
     alert('Please use letters only & one at a time');
   } else {
-    // update the game progress with the player guess
+    // update the game progress nomatch = -1 on guesses
     guessMatch = 'nomatch';
   }
-  // ===================================================
-  // get the guesses logic and some others to work, its not right yet.Have to work in this
-  // =====================================================
+  // check if the word has a match with player guess
+  // to either move on or take away from guesses
   if (!guessMatch === 'match') {
     break;
   } else if (guessMatch === 'nomatch' && guesses > 0) {

@@ -105,7 +105,7 @@ h1 {
 }
 
 h1::before {
-    content: 'Hangman text game';
+    content: 'Hangman game';
     position: absolute; 
     top: 4rem;
     left: 0;   

@@ -2,7 +2,13 @@
 
 ## A js console or window (alert, prompt, confirm) game 4 frontend at CME
 
-Goal is to make a console game with loops, conditionals, variables, const, let, logic etc. 
+Goal is to make a console game with loops, conditionals, variables, const, let, logic etc.
+
+I added some css, wanted to try out css 3d effects, but also created a button with a hover effect.
+The button how ever has a eventlistener to start the game.
+This assignment is not a html or css assignment so I havent separated the css or any files. 
+
+Javascript is in the index.js file :D
 
 </br>
 
@@ -27,7 +33,7 @@ Tried different before I decided for this hangman kind of game. I try to use wha
 
 # The process, my choices, issues i stumbled upon and reflection
 
-I started with a wordle kind of thinking in logic, uisng words to check with words, looping the word and changing it to an array of letters, but got confused so I changed it to this project only taking one letter at a time as input checking for the with the word. 
+I started with a wordle kind of thinking in logic, uisng words to check with words, looping the word and changing it to an array of letters, but got confused so I changed it to this project only taking one letter at a time as input checking if its in the "secret" word. 
 Also tried out rock, paper, scissors game. 
 https://github.com/xxrobone/rockpaperscissors
 

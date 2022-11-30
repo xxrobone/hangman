@@ -11,7 +11,7 @@
 // button to play game
 const btn = document.querySelector('.btn');
 
-btn.addEventListener('click');
+btn.addEventListener('click', playGame);
 
 // only using 4 letter words, will change this later
 const wordsArr = [
@@ -58,14 +58,6 @@ for (let i = 0; i < secretWord.length; i++) {
 }
 
 // Alert to show the info of the game
-alert(
-  'Welcome! \nThis is a hangman (word guessing) game \nTo play continue with pressing OK' +
-    '\nThe word is ' +
-    answerArr +
-    ' : ' +
-    secretWord.length +
-    ' characters long'
-);
 
 //creating guesses variable with 6 chances
 let guesses = 6;
@@ -74,6 +66,15 @@ let remainingLetters = secretWord.length;
 
 // creating the game loop
 function playGame() {
+  alert(
+    'Welcome! \nThis is a hangman (word guessing) game \nTo play continue with pressing OK' +
+      '\nThe word is ' +
+      answerArr +
+      ' : ' +
+      secretWord.length +
+      ' characters long'
+  );
+
   while (remainingLetters > 0 && guesses > 0) {
     // create a variable for boolean to later add true or false for guesses control
     let guessMatch;
@@ -108,8 +109,8 @@ function playGame() {
       /* alert('no input given, game will end!'); */
       break;
     } else if (
-      playerGuess.length !== 1 ||
-      playerGuess !== regexCheckLetter ||
+      playerGuess.length !== 1 &&
+      playerGuess !== regexCheckLetter &&
       playerGuess.match(regexCheckNumber)
     ) {
       alert('Please use letters only & one at a time');
@@ -127,27 +128,27 @@ function playGame() {
 
     // game loop ending
   }
-}
-
-// end the game
-if (guesses === 0) {
-  alert(
-    'Game over \nSorry You have no more guesses: ' +
-      guesses +
-      '\nThe word was: ' +
-      secretWord +
-      '\nYour guess progress ' +
-      answerArr.join(' ')
-  );
-} else if (quitGame === true) {
-  alert("Sad You diden't want to continue, \nHave a great day! :D");
-} else {
-  alert(
-    'Good job buddy! The answer was ' +
-      secretWord +
-      '\nYour guess was: ' +
-      answerArr.join('').toUpperCase()
-  );
+  // game endings
+  if (guesses === 0) {
+    alert(
+      'Game over \nSorry You have no more guesses: ' +
+        guesses +
+        '\nThe word was: ' +
+        secretWord +
+        '\nYour guess progress ' +
+        answerArr.join(' ')
+    );
+  } else if (quitGame === true) {
+    alert("Sad You diden't want to continue, \nHave a great day! :D");
+  } else {
+    alert(
+      'Good job buddy! The answer was ' +
+        secretWord +
+        '\nYour guess was: ' +
+        answerArr.join('').toUpperCase()
+    );
+  }
+  //game function ending
 }
 
 // what i worked on before and keeping it here till i move it to a new project

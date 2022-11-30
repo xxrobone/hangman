@@ -68,7 +68,7 @@ function playGame() {
   // creating an array to hold the right guessed letters
   let answerArr = [];
 
-  // quit game declaration
+  // quit game initialization set to false
   let quitGame = false;
 
   /* looping thru the secret word and adding to the array 

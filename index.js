@@ -76,7 +76,7 @@ also show progress of the word if guess is right */
 
   while (remainingLetters > 0 && guesses > 0) {
     // create a variable for boolean to later add true or false for guesses control
-    let guessMatch;
+    let guessIsMatch;
     // regex to check if input is number or letter
     var regexCheckNumber = /^[0-9]+$/;
     var regexCheckLetter = /^[a-öA-Ö]+$/;
@@ -91,8 +91,8 @@ also show progress of the word if guess is right */
         '\nLetters remaining ' +
         remainingLetters
     );
-    // check if sercretword has playerguess in it
-    if (secretWord.includes(playerGuess)) {
+    // check if sercretword has playerguess letter in it and answer array does not
+    if (secretWord.includes(playerGuess) && !answerArr.includes(playerGuess)) {
       // looping over the secretWord and checking if the playerguessed letter is in the word and what position
       for (let j = 0; j < secretWord.length; j++) {
         if (secretWord[j] === playerGuess) {
@@ -100,7 +100,7 @@ also show progress of the word if guess is right */
           // decrease remaining letters in the word
           remainingLetters--;
           // guess is match so guesses remains
-          guessMatch = 'match';
+          guessIsMatch = 'match';
         }
       }
     } else if (playerGuess === null || playerGuess === '') {
@@ -113,15 +113,19 @@ also show progress of the word if guess is right */
       playerGuess.match(regexCheckNumber)
     ) {
       alert('Please use letters only & one at a time');
+    }
+    // Alert if letter is already used checking the answer array
+    else if (answerArr.includes(playerGuess)) {
+      alert('You already used that letter');
     } else {
       // update the game progress nomatch = -1 on guesses
-      guessMatch = 'nomatch';
+      guessIsMatch = 'nomatch';
     }
     // check if the word has a match with player guess
     // to either move on or take away from guesses
-    if (!guessMatch === 'match') {
+    if (!guessIsMatch === 'match') {
       break;
-    } else if (guessMatch === 'nomatch' && guesses > 0) {
+    } else if (guessIsMatch === 'nomatch' && guesses > 0) {
       guesses--;
     }
 
@@ -141,7 +145,8 @@ also show progress of the word if guess is right */
     alert("Sad You diden't want to continue, \nHave a great day! :D");
   } else {
     alert(
-      'Good job buddy! The answer was ' +
+      'YOU WIN!' +
+        '\nGood job buddy! The answer was ' +
         secretWord +
         '\nYour guess was: ' +
         answerArr.join('').toUpperCase()

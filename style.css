@@ -154,7 +154,6 @@ h4:nth-of-type(1) {
 }
 
 .btn {
-    margin-top: 2rem;
     cursor: pointer;
     position: relative;
     display: inline-block;

@@ -13,8 +13,27 @@ const btn = document.querySelector('.btn');
 
 btn.addEventListener('click', playGame);
 
-// only using 4 letter words, will change this later could use and api with words too
+// only using this short array, could be more words, can change this if needed, could also use an api with words too fetch from
 const wordsArr = [
+  'gamer',
+  'coder',
+  'player',
+  'javascript',
+  'arrays',
+  'state',
+  'css',
+  'coding',
+  'programming',
+  'agile',
+  'developer',
+  'node',
+  'postman',
+  'react',
+  'next',
+  'wordpress',
+  'hyper',
+  'education',
+  'word',
   'code',
   'home',
   'from',

@@ -39,33 +39,32 @@ const wordsArr = [
   'mile',
 ];
 
-// get a random word from the words array
-const secretWord = wordsArr[Math.floor(Math.random() * wordsArr.length)];
-
-// Declaring variable for player Guess
-let playerGuess;
-// creating an array to hold the right guessed letters
-let answerArr = [];
-
-// quit game declaration
-let quitGame = false;
-
-/* looping thru the secret word and adding to the array 
-so the player will see how many letters there is and
-also show progress of the word if guess is right */
-for (let i = 0; i < secretWord.length; i++) {
-  answerArr[i] = '_';
-}
-
-// Alert to show the info of the game
-
-//creating guesses variable with 6 chances
-let guesses = 6;
-// showing how many letter remain for the right word
-let remainingLetters = secretWord.length;
-
 // creating the game loop
 function playGame() {
+  // get a random word from the words array
+  const secretWord = wordsArr[Math.floor(Math.random() * wordsArr.length)];
+
+  // Declaring variable for player Guess
+  let playerGuess;
+  // creating an array to hold the right guessed letters
+  let answerArr = [];
+
+  // quit game declaration
+  let quitGame = false;
+
+  /* looping thru the secret word and adding to the array 
+so the player will see how many letters there is and
+also show progress of the word if guess is right */
+  for (let i = 0; i < secretWord.length; i++) {
+    answerArr[i] = '_';
+  }
+
+  // Alert to show the info of the game
+
+  //creating guesses variable with 6 chances
+  let guesses = 6;
+  // showing how many letter remain for the right word
+  let remainingLetters = secretWord.length;
   alert(
     'Welcome! \nThis is a hangman (word guessing) game \nTo play continue with pressing OK' +
       '\nThe word is ' +

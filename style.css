@@ -33,6 +33,7 @@ body {
     -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;   
     transition: all 0.4s ease-in;
+    overflow: hidden;
 }
 
 img {
@@ -48,7 +49,8 @@ img {
 .container {
     position: relative;
     margin: 10rem auto 0;
-    width: 50rem;
+    width: 75%;
+    min-height: 20rem;
     height: 25rem;
     padding: 2rem;
     -webkit-perspective: 1000px;

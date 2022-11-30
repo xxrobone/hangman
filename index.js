@@ -135,7 +135,7 @@ also show progress of the word if guess is right */
     }
     // Alert if letter is already used checking the answer array
     else if (answerArr.includes(playerGuess)) {
-      alert('You already used that letter');
+      alert('You already used this letter');
     } else {
       // update the game progress nomatch = -1 on guesses
       guessIsMatch = 'nomatch';

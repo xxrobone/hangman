@@ -184,7 +184,7 @@ h4:nth-of-type(1) {
 .btn::after {
     content: '';
     position: absolute;
-    background-color: var(--color-alt);
+    background-color: var(--color-primary);
     opacity: 0;
     height: 100%;
     width: 100%;

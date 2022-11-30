@@ -127,8 +127,8 @@ also show progress of the word if guess is right */
       /* alert('no input given, game will end!'); */
       break;
     } else if (
-      playerGuess.length !== 1 &&
-      playerGuess !== regexCheckLetter &&
+      playerGuess.length !== 1 ||
+      !playerGuess.match(regexCheckLetter) ||
       playerGuess.match(regexCheckNumber)
     ) {
       alert('Please use letters only & one at a time');

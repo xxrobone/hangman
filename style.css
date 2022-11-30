@@ -167,9 +167,12 @@ h4:nth-of-type(1) {
     padding: 1.5rem 3rem;
     border: 1px solid var(--color-shade);
     border-radius: 25px;
+    transition: all 0.4s ease-in-out;
 }
 
-  
+.btn:hover {
+    color: var(--color-black);
+}
 .btn:hover::after, .btn:focus::after {
     top: 0;
     left: 0;
@@ -184,7 +187,7 @@ h4:nth-of-type(1) {
 .btn::after {
     content: '';
     position: absolute;
-    background-color: var(--color-primary);
+    background-color: var(--color-alt);
     opacity: 0;
     height: 100%;
     width: 100%;

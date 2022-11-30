@@ -37,18 +37,24 @@ const wordsArr = [
 // get a random word from the words array
 const secretWord = wordsArr[Math.floor(Math.random() * wordsArr.length)];
 
+// Declaring variable for player Guess
+let playerGuess;
 // creating an array to hold the right guessed letters
 let answerArr = [];
-// looing thru the secret word and adding to the array
-// so the player will see how many letters there is and
-// also show progress
+
+// quit game declaration
+let quitGame = false;
+
+/* looping thru the secret word and adding to the array 
+so the player will see how many letters there is and
+also show progress of the word if guess is right */
 for (let i = 0; i < secretWord.length; i++) {
   answerArr[i] = '_';
 }
 
 // Alert to show the info of the game
 alert(
-  'Welcome! \nThis is a hangman word guessing game \nTo play continue with pressing OK' +
+  'Welcome! \nThis is a hangman (word guessing) game \nTo play continue with pressing OK' +
     '\nThe word is ' +
     answerArr +
     ' : ' +
@@ -65,11 +71,11 @@ let remainingLetters = secretWord.length;
 while (remainingLetters > 0 && guesses > 0) {
   // create a variable for boolean to later add true or false for guesses control
   let guessMatch;
-  // regex to check if input is letter or number
+  // regex to check if input is number or letter
   var regexCheckNumber = /^[0-9]+$/;
   var regexCheckLetter = /^[a-öA-Ö]+$/;
-  // take the player input /guess as a variable
-  let playerGuess = prompt(
+  // initializing the playerGuess variable by taking in the player input
+  playerGuess = prompt(
     'Guess a letter!' +
       ' or click cancel to quit.' +
       '\nYour guessed letters ' +
@@ -91,12 +97,13 @@ while (remainingLetters > 0 && guesses > 0) {
         guessMatch = 'match';
       }
     }
-  } else if (playerGuess === null) {
-    alert('No letter given, no input, no game.');
-    continue;
+  } else if (playerGuess === null || playerGuess === '') {
+    quitGame = true;
+    /* alert('no input given, game will end!'); */
+    break;
   } else if (
     playerGuess.length !== 1 ||
-    (playerGuess === playerGuess) === regexCheckLetter ||
+    playerGuess !== regexCheckLetter ||
     playerGuess.match(regexCheckNumber)
   ) {
     alert('Please use letters only & one at a time');
@@ -125,6 +132,8 @@ if (guesses === 0) {
       '\nYour guess progress ' +
       answerArr.join(' ')
   );
+} else if (quitGame === true) {
+  alert("Sad You diden't want to continue, \nHave a great day! :D");
 } else {
   alert(
     'Good job buddy! The answer was ' +

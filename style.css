@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --color-primary: #129793;
+    --color-shade: #9bd7df;
+    --color-bg: #505050;
+    --color-alt: #ff7260;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    font-family: 'Roboto', sans-serif;
+    background-color: #121212;
+    background-image: url('./bgimg.jpg');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    object-fit: cover;
+    object-position: center;
+    /* 3d effect */
+    -webkit-perspective: 1000px;
+    perspective: 1000px;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;   
+}
+
+.container {
+    margin: 10rem auto 0;
+    width: fit-content;
+    height: fit-content;
+    padding: 2rem;
+
+    /* Glass effect */
+    box-sizing: border-box;
+    border: 2px solid rgba(0, 0, 0, .15);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .25), inset 0 0 2px 0px white;
+    background: rgba(0, 0, 0, .0125);
+    overflow: hidden;
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+
+    /* 3d effect */
+
+    -webkit-transition: 1.5s ease-in-out;
+	transition: 1.5s ease-in-out;
+    cursor: pointer;
+}
+
+.container:hover {
+    /* 3d effect */
+	-webkit-transform: rotateY(180deg);
+	transform: rotateY(180deg);
+}
+
+h1, h4 {
+    color: var(--color-primary);
+}
+
+h1 {
+    text-align: center;
+    font-size: 3rem;
+    text-transform: uppercase;
+    text-shadow: 1px 2px 1px var(--color-shade);
+}
+
+h4 {
+    text-align: center;
+    margin-top: 2rem;
+}

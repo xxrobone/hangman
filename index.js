@@ -8,6 +8,11 @@
 // 7 Show the player if the word is right v
 // 8 Create game loop v
 
+// button to play game
+const btn = document.querySelector('.btn');
+
+btn.addEventListener('click');
+
 // only using 4 letter words, will change this later
 const wordsArr = [
   'code',
@@ -68,58 +73,60 @@ let guesses = 6;
 let remainingLetters = secretWord.length;
 
 // creating the game loop
-while (remainingLetters > 0 && guesses > 0) {
-  // create a variable for boolean to later add true or false for guesses control
-  let guessMatch;
-  // regex to check if input is number or letter
-  var regexCheckNumber = /^[0-9]+$/;
-  var regexCheckLetter = /^[a-öA-Ö]+$/;
-  // initializing the playerGuess variable by taking in the player input
-  playerGuess = prompt(
-    'Guess a letter!' +
-      ' or click cancel to quit.' +
-      '\nYour guessed letters ' +
-      answerArr.join(' ') +
-      '\nGuesses left: ' +
-      guesses +
-      '\nLetters remaining ' +
-      remainingLetters
-  );
-  // check if sercretword has playerguess in it
-  if (secretWord.includes(playerGuess)) {
-    // looping over the secretWord and checking if the playerguessed letter is in the word and what position
-    for (let j = 0; j < secretWord.length; j++) {
-      if (secretWord[j] === playerGuess) {
-        answerArr[j] = playerGuess;
-        // decrease remaining letters in the word
-        remainingLetters--;
-        // guess is match so guesses remains
-        guessMatch = 'match';
+function playGame() {
+  while (remainingLetters > 0 && guesses > 0) {
+    // create a variable for boolean to later add true or false for guesses control
+    let guessMatch;
+    // regex to check if input is number or letter
+    var regexCheckNumber = /^[0-9]+$/;
+    var regexCheckLetter = /^[a-öA-Ö]+$/;
+    // initializing the playerGuess variable by taking in the player input
+    playerGuess = prompt(
+      'Guess a letter!' +
+        ' or click cancel to quit.' +
+        '\nYour guessed letters ' +
+        answerArr.join(' ') +
+        '\nGuesses left: ' +
+        guesses +
+        '\nLetters remaining ' +
+        remainingLetters
+    );
+    // check if sercretword has playerguess in it
+    if (secretWord.includes(playerGuess)) {
+      // looping over the secretWord and checking if the playerguessed letter is in the word and what position
+      for (let j = 0; j < secretWord.length; j++) {
+        if (secretWord[j] === playerGuess) {
+          answerArr[j] = playerGuess;
+          // decrease remaining letters in the word
+          remainingLetters--;
+          // guess is match so guesses remains
+          guessMatch = 'match';
+        }
       }
+    } else if (playerGuess === null || playerGuess === '') {
+      quitGame = true;
+      /* alert('no input given, game will end!'); */
+      break;
+    } else if (
+      playerGuess.length !== 1 ||
+      playerGuess !== regexCheckLetter ||
+      playerGuess.match(regexCheckNumber)
+    ) {
+      alert('Please use letters only & one at a time');
+    } else {
+      // update the game progress nomatch = -1 on guesses
+      guessMatch = 'nomatch';
     }
-  } else if (playerGuess === null || playerGuess === '') {
-    quitGame = true;
-    /* alert('no input given, game will end!'); */
-    break;
-  } else if (
-    playerGuess.length !== 1 ||
-    playerGuess !== regexCheckLetter ||
-    playerGuess.match(regexCheckNumber)
-  ) {
-    alert('Please use letters only & one at a time');
-  } else {
-    // update the game progress nomatch = -1 on guesses
-    guessMatch = 'nomatch';
-  }
-  // check if the word has a match with player guess
-  // to either move on or take away from guesses
-  if (!guessMatch === 'match') {
-    break;
-  } else if (guessMatch === 'nomatch' && guesses > 0) {
-    guesses--;
-  }
+    // check if the word has a match with player guess
+    // to either move on or take away from guesses
+    if (!guessMatch === 'match') {
+      break;
+    } else if (guessMatch === 'nomatch' && guesses > 0) {
+      guesses--;
+    }
 
-  // game loop ending
+    // game loop ending
+  }
 }
 
 // end the game

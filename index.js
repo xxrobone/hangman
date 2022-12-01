@@ -14,8 +14,8 @@ user = JSON.parse(user);
 
 console.log(user.friends);
  */
-let topics = ['world', 'culture', 'programming', 'nature'];
-let topic;
+/* let topics = ['world', 'culture', 'programming', 'nature'];
+let topic = '';
 
 let fetchedData = [];
 
@@ -27,24 +27,27 @@ function createButtons() {
     document.querySelector('.buttons').append(btn);
 
     btn.addEventListener('click', (e) => {
-      fetchedData = [];
       topic = e.target.textContent;
-      console.log(topic);
+
+      let newArr = [];
       fetchWords(topic).then((data) => {
-        fetchedData.push(data.map((word) => word.word));
+        newArr.push(data.map((d) => d.word));
       });
-      console.log(fetchedData);
+      console.log(newArr);
+      return (fetchedData = newArr);
     });
   });
 }
+console.log(topic);
+
+console.log(fetchedData);
 createButtons();
-fetchWords(topic);
 
 async function fetchWords(input) {
   const response = await fetch(`https://api.datamuse.com/words?ml=${input}`);
   const data = await response.json();
   return data;
-}
+} */
 
 /* 
 fetch(`https://api.datamuse.com/words?ml=${topic}`)
@@ -102,11 +105,14 @@ const wordsArr = [
   'mile',
 ];
 
+// get a random word from the words array
+
+const secretWord = wordsArr[Math.floor(Math.random() * wordsArr.length)];
+
+/* const secretWord = fetchedData[Math.floor(Math.random() * fetchedData.length)]; */
+
 // creating the game loop
 function playGame() {
-  // get a random word from the words array
-  const secretWord = wordsArr[Math.floor(Math.random() * wordsArr.length)];
-
   // Declaring variable for player Guess
   let playerGuess;
   // creating an array to hold the right guessed letters

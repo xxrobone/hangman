@@ -68,6 +68,9 @@ function playGame() {
   // creating an array to hold the right guessed letters
   let answerArr = [];
 
+  // used letters array, that is not included in the word
+  let usedLetters = [];
+
   // quit game initialization set to false
   let quitGame = false;
 
@@ -123,6 +126,7 @@ also show progress of the word if guess is right */
         }
       }
     } else if (playerGuess === null || playerGuess === '') {
+      //check player guess is
       quitGame = true;
       /* alert('no input given, game will end!'); */
       break;
@@ -134,20 +138,17 @@ also show progress of the word if guess is right */
       alert('Please use letters only & one at a time');
     }
     // Alert if letter is already used checking the answer array
-    else if (answerArr.includes(playerGuess)) {
+    else if (
+      answerArr.includes(playerGuess) ||
+      usedLetters.includes(playerGuess)
+    ) {
       alert('You already used this letter');
     } else {
       // update the game progress nomatch = -1 on guesses
       guessIsMatch = 'nomatch';
-    }
-    // check if the word has a match with player guess
-    // to either move on or take away from guesses
-    if (!guessIsMatch === 'match') {
-      break;
-    } else if (guessIsMatch === 'nomatch' && guesses > 0) {
       guesses--;
+      usedLetters.push(playerGuess);
     }
-
     // game loop ending
   }
   // game endings

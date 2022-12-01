@@ -11,6 +11,7 @@
     --color-bg: #505050;
     --color-alt: #ff7260;
     --color-black: #000;
+    --color-white: #fafafa;
 }
 
 body {
@@ -34,6 +35,11 @@ body {
     transform-style: preserve-3d;   
     transition: all 0.4s ease-in;
     overflow: hidden;
+    color: var(--color-white);
+}
+
+p {
+    margin: 1rem 0;
 }
 
 img {
@@ -153,6 +159,31 @@ h4 {
 
 h4:nth-of-type(1) {
     margin-top: 6rem;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.button {
+    cursor: pointer;
+    position: relative;
+    text-transform: uppercase;
+    border: 0;
+    background-color: var(--color-white);
+    color: var(--color-alt);
+    font-size: 1rem;
+    font-weight: 100;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--color-shade);
+    border-radius: 25px;
+    transition: all 0.4s ease-in-out;
+}
+.button:hover,
+.button:focus {
+    color: var(--color-white);
+    background-color: var(--color-black);
 }
 
 .btn {

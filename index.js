@@ -7,6 +7,52 @@
 // 6 show the player their progress v
 // 7 Show the player if the word is right v
 // 8 Create game loop v
+/* 
+let user = '{"name": "Jason", "age": 25, "friends": [0,1,2]}';
+
+user = JSON.parse(user);
+
+console.log(user.friends);
+ */
+let topics = ['world', 'culture', 'programming', 'nature'];
+let topic;
+
+let fetchedData = [];
+
+function createButtons() {
+  topics.forEach((t) => {
+    let btn = document.createElement('button');
+    btn.classList.add('button');
+    btn.textContent = t;
+    document.querySelector('.buttons').append(btn);
+
+    btn.addEventListener('click', (e) => {
+      fetchedData = [];
+      topic = e.target.textContent;
+      console.log(topic);
+      fetchWords(topic).then((data) => {
+        fetchedData.push(data.map((word) => word.word));
+      });
+      console.log(fetchedData);
+    });
+  });
+}
+createButtons();
+fetchWords(topic);
+
+async function fetchWords(input) {
+  const response = await fetch(`https://api.datamuse.com/words?ml=${input}`);
+  const data = await response.json();
+  return data;
+}
+
+/* 
+fetch(`https://api.datamuse.com/words?ml=${topic}`)
+  .then((response) => response.json())
+  .then((data) => {
+    fetchedData.push(data.map((word) => word.word));
+  });
+console.log(fetchedData); */
 
 // button to play game
 const btn = document.querySelector('.btn').addEventListener('click', playGame);

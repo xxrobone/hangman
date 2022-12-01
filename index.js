@@ -98,14 +98,12 @@ const wordsArr = [
   'mile',
 ];
 
-// get a random word from the words array
-
-const secretWord = wordsArr[Math.floor(Math.random() * wordsArr.length)];
-
 /* const secretWord = fetchedData[Math.floor(Math.random() * fetchedData.length)]; */
 
 // creating the game loop
 function playGame() {
+  // get a random word from the words array
+  const secretWord = wordsArr[Math.floor(Math.random() * wordsArr.length)];
   // Declaring variable for player Guess
   let playerGuess;
   // creating an array to hold the right guessed letters

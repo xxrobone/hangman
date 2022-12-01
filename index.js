@@ -9,9 +9,7 @@
 // 8 Create game loop v
 
 // button to play game
-const btn = document.querySelector('.btn');
-
-btn.addEventListener('click', playGame);
+const btn = document.querySelector('.btn').addEventListener('click', playGame);
 
 // only using this short array, could be more words, can change this if needed, could also use an api with words too fetch from
 const wordsArr = [
@@ -74,19 +72,19 @@ function playGame() {
   // quit game initialization set to false
   let quitGame = false;
 
-  /* looping thru the secret word and adding to the array 
+  /* looping thru the secret word and adding it to the answer array 
 so the player will see how many letters there is and
 also show progress of the word if guess is right */
   for (let i = 0; i < secretWord.length; i++) {
     answerArr[i] = '_';
   }
 
-  // Alert to show the info of the game
-
   //creating guesses variable with 6 chances
   let guesses = 6;
   // showing how many letter remain for the right word
   let remainingLetters = secretWord.length;
+
+  // Alert to show the info of the game
   alert(
     'Welcome! \nThis is a hangman (word guessing) game \nTo play continue with pressing OK' +
       '\nThe word is ' +
@@ -137,14 +135,15 @@ also show progress of the word if guess is right */
     ) {
       alert('Please use letters only & one at a time');
     }
-    // Alert if letter is already used checking the answer array
+    // Alert if letter is already used checking the answer array and used letters array
     else if (
       answerArr.includes(playerGuess) ||
       usedLetters.includes(playerGuess)
     ) {
       alert('You already used this letter');
     } else {
-      // update the game progress nomatch = -1 on guesses
+      // update the game progress guess is match to no match and -1 on guesses
+      // also push the letter that is not included in the word to used letters array
       guessIsMatch = 'nomatch';
       guesses--;
       usedLetters.push(playerGuess);
@@ -157,7 +156,7 @@ also show progress of the word if guess is right */
       'Game over \nSorry You have no more guesses: ' +
         guesses +
         '\nThe word was: ' +
-        secretWord +
+        secretWord.join(' ') +
         '\nYour guess progress ' +
         answerArr.join(' ')
     );

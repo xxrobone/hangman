@@ -8,13 +8,7 @@
 // 7 Show the player if the word is right v
 // 8 Create game loop v
 /* 
-let user = '{"name": "Jason", "age": 25, "friends": [0,1,2]}';
-
-user = JSON.parse(user);
-
-console.log(user.friends);
- */
-/* let topics = ['world', 'culture', 'programming', 'nature'];
+let topics = ['world', 'culture', 'programming', 'nature'];
 let topic = '';
 
 let fetchedData = [];
@@ -28,13 +22,8 @@ function createButtons() {
 
     btn.addEventListener('click', (e) => {
       topic = e.target.textContent;
-
-      let newArr = [];
-      fetchWords(topic).then((data) => {
-        newArr.push(data.map((d) => d.word));
-      });
-      console.log(newArr);
-      return (fetchedData = newArr);
+      fetchWords(topic);
+      console.log(topic);
     });
   });
 }
@@ -46,7 +35,11 @@ createButtons();
 async function fetchWords(input) {
   const response = await fetch(`https://api.datamuse.com/words?ml=${input}`);
   const data = await response.json();
-  return data;
+  fetchedData.push(
+    data.map((d) => {
+      d.word, console.log(d.word);
+    })
+  );
 } */
 
 /* 

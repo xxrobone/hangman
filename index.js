@@ -194,6 +194,7 @@ also show progress of the word if guess is right */
       usedLetters.push(playerGuess);
     }
     // game loop ending
+    console.log(guesses);
   }
   // game endings
   if (guesses === 0) {
@@ -201,7 +202,7 @@ also show progress of the word if guess is right */
       'Game over \nSorry You have no more guesses: ' +
         guesses +
         '\nThe word was: ' +
-        secretWord.join(' ') +
+        secretWord +
         '\nYour guess progress ' +
         answerArr.join(' ')
     );

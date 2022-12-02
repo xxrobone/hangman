@@ -7,48 +7,6 @@
 // 6 show the player their progress v
 // 7 Show the player if the word is right v
 // 8 Create game loop v
-/* 
-let topics = ['world', 'culture', 'programming', 'nature'];
-let topic = '';
-
-let fetchedData = [];
-
-function createButtons() {
-  topics.forEach((t) => {
-    let btn = document.createElement('button');
-    btn.classList.add('button');
-    btn.textContent = t;
-    document.querySelector('.buttons').append(btn);
-
-    btn.addEventListener('click', (e) => {
-      topic = e.target.textContent;
-      fetchWords(topic);
-      console.log(topic);
-    });
-  });
-}
-console.log(topic);
-
-console.log(fetchedData);
-createButtons();
-
-async function fetchWords(input) {
-  const response = await fetch(`https://api.datamuse.com/words?ml=${input}`);
-  const data = await response.json();
-  fetchedData.push(
-    data.map((d) => {
-      d.word, console.log(d.word);
-    })
-  );
-} */
-
-/* 
-fetch(`https://api.datamuse.com/words?ml=${topic}`)
-  .then((response) => response.json())
-  .then((data) => {
-    fetchedData.push(data.map((word) => word.word));
-  });
-console.log(fetchedData); */
 
 // button to play game
 const btn = document.querySelector('.btn').addEventListener('click', playGame);
@@ -97,8 +55,6 @@ const wordsArr = [
   'file',
   'mile',
 ];
-
-/* const secretWord = fetchedData[Math.floor(Math.random() * fetchedData.length)]; */
 
 // creating the game loop
 function playGame() {
@@ -217,47 +173,3 @@ also show progress of the word if guess is right */
   }
   //game function ending
 }
-
-// what i worked on before and keeping it here till i move it to a new project
-// ====================================================================================================================
-/* 
-console.log(
-  'Letters of the word: ' +
-    showArr +
-    '\nis ' +
-    answer.length +
-    ' characters long ;)'
-);
-
-guessArr = guess.split('');
-answerArr = answer.split('');
-
-console.log('this is the word = ' + answerArr.join());
-
-for (let i = 0, j = 0; i < answerArr.length; i++, j++) {
-  if (guessArr.includes(answerArr[i]) && guessArr[j] !== answerArr[i]) {
-    includedLettersArr.push(answerArr[j]);
-    console.log(
-      'these letters are right: ' +
-        guessArr[j] +
-        ' : ' +
-        answerArr[i] +
-        '\nThese letters are right but in wrong position; ' +
-        '\n' +
-        includedLettersArr
-    );
-  }
-  if (guessArr[j] == answerArr[i]) {
-    showArr[i] = answerArr[i];
-  }
-  if (!guessArr.includes(answerArr[i])) {
-    console.log(
-      '%c These letters are wrong: ' + guessArr[],
-      'color: red; background: black;'
-    );
-    usedLettersArr.push(guessArr[j]);
-  }
-  console.log('used letters: ' + usedLettersArr);
-  console.log('right letters ' + showArr);
-}
- */

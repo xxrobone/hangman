@@ -58,10 +58,29 @@ const wordsArr = [
   'programming',
 ];
 
+// creating a function for taking a random word from array of words
+function randomWord(inputArr) {
+  let randomWord;
+  // check that array actully is an array
+  if (
+    Array.isArray(inputArr) &&
+    inputArr !== null &&
+    inputArr !== undefined &&
+    inputArr.length !== 0
+  ) {
+    randomWord = inputArr[Math.floor(Math.random() * inputArr.length)];
+  } else {
+    console.log('No array of words is found, need one to function');
+  }
+  return randomWord;
+}
+
 // creating the game loop
 function playGame() {
   // get a random word from the words array, one const ;)
-  const secretWord = wordsArr[Math.floor(Math.random() * wordsArr.length)];
+
+  const secretWord = randomWord(wordsArr);
+
   // Declaring variable for player Guess
   let playerGuess;
   // creating an array to hold the right guessed letters
@@ -76,6 +95,7 @@ function playGame() {
   /* looping thru the secret word and adding it to the answer array 
 so the player will see how many letters there is and
 also show progress of the word if guess is right */
+
   for (let i = 0; i < secretWord.length; i++) {
     answerArr[i] = '_';
   }

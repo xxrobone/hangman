@@ -99,7 +99,7 @@ also show progress of the word if guess is right */
     // regex to check if input is number or letter
     var regexCheckNumber = /^[0-9]+$/;
     var regexCheckLetter = /^[a-öA-Ö]+$/;
-    // initializing the playerGuess variable by taking in the player input
+    // initializing the playerGuess variable by taking in the player input or cancel
     playerGuess = prompt(
       'Guess a letter!' +
         ' or click cancel to quit.' +

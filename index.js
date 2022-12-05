@@ -1,12 +1,4 @@
-//prepping for word game "hangman"
-// 1 pick a random word from an array v
-// 2 take a players guess input using prompt v
-// 3 quit the game if player wants to quit v
-// 4 Check if player guess is a letter in the word v
-// 5 Keep track of guesses and letters guessed v
-// 6 show the player their progress v
-// 7 Show the player if the word is right v
-// 8 Create game loop v
+//removed logic to own text file
 
 // button to play game
 const btn = document.querySelector('.btn').addEventListener('click', playGame);

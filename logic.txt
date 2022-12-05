@@ -8,3 +8,28 @@
 // 7 Show the player their progress v
 // 8 Create game loop v
 // added a game button, eventlistener 
+
+// + 
+
+What is Javascript?
+
+Javascript is a so-called low-level language and it runs in the browser by compiling the code via javascript engine. This makes it possible for computers to read J's code and then display the content in our browsers.
+V8 is chrome's compiler or data language translator, while e.g
+spidermonkey is firefox, almost all browsers have their own js
+translators but they are all very similar, some better and more compatible than others.
+
+JS is a so-called single threaded language, it has only one stack, in other words 
+- it can only do one thing at a time.
+
+It works by having a data structure (memory heap) one
+memory bank and a call stack (call stack) a stack that stores
+details for code that runs in a sequence that is then called by the program / the browser through the WEB API, js engine and returns the response when it has been run, remove it from the queue and then run the next one, etc. in a loop.
+Every time code is executed, it is executed through the call stack.
+So variables that we store are in the memory (memory heap). If, for example, you have
+too much unused code or large code in memory can happen
+"memory gaps". So having too much in the global memory can lead to longer loading times, for example, or the program freezing.
+So for it to work, "asynchronous" programming was needed
+in order not to block the code, for example by inserting a timeout so that the code can continue to run while waiting for a response from, for example, a function or array that takes longer then it tells the WEB API that there is one coming
+response after the timeout is complete and then it is executed from the call stack.
+So when a code has been executed, and the program waits for the next bit that takes
+longer, it continues to read the next code, the whole works through a loo which runs and checks what will come next.

@@ -82,7 +82,7 @@ function playGame() {
   const secretWord = randomWord(wordsArr);
 
   // Declaring variable for player Guess
-  let playerGuess;
+  let userInput;
   // creating an array to hold the right guessed letters
   let answerArr = [];
 
@@ -119,8 +119,8 @@ also show progress of the word if guess is right */
     // regex to check if input is number or letter
     var regexCheckNumber = /^[0-9]+$/;
     var regexCheckLetter = /^[a-öA-Ö]+$/;
-    // initializing the playerGuess variable by taking in the player input or cancel
-    playerGuess = prompt(
+    // initializing the userInput variable by taking in the player input or cancel
+    userInput = prompt(
       'Guess a letter!' +
         ' or click cancel to quit.' +
         '\nYour guessed letters ' +
@@ -130,39 +130,36 @@ also show progress of the word if guess is right */
         '\nLetters remaining ' +
         remainingLetters
     );
-    // check if sercretword has playerguess letter in it and answer array does not
-    if (secretWord.includes(playerGuess) && !answerArr.includes(playerGuess)) {
-      // looping over the secretWord and checking if the playerguessed letter is in the word and what position
+    // check if sercretword has userInput letter in it and answer array does not
+    if (secretWord.includes(userInput) && !answerArr.includes(userInput)) {
+      // looping over the secretWord and checking if the userInputed letter is in the word and what position
       for (let j = 0; j < secretWord.length; j++) {
-        if (secretWord[j] === playerGuess) {
-          answerArr[j] = playerGuess;
+        if (secretWord[j] === userInput) {
+          answerArr[j] = userInput;
           // decrease remaining letters in the word
           remainingLetters--;
         }
       }
-    } else if (playerGuess === null || playerGuess === '') {
+    } else if (userInput === null || userInput === '') {
       //check player guess is
       quitGame = true;
       /* alert('no input given, game will end!'); */
       break;
     } else if (
-      playerGuess.length !== 1 ||
-      !playerGuess.match(regexCheckLetter) ||
-      playerGuess.match(regexCheckNumber)
+      userInput.length !== 1 ||
+      !userInput.match(regexCheckLetter) ||
+      userInput.match(regexCheckNumber)
     ) {
       alert('Please use letters only & one at a time');
     }
     // Alert if letter is already used checking the answer array and used letters array
-    else if (
-      answerArr.includes(playerGuess) ||
-      usedLetters.includes(playerGuess)
-    ) {
+    else if (answerArr.includes(userInput) || usedLetters.includes(userInput)) {
       alert('You already used this letter');
     } else {
       // update the game progress guess is match to no match and -1 on guesses
       // also push the letter that is not included in the word to used letters array
       guesses--;
-      usedLetters.push(playerGuess);
+      usedLetters.push(userInput);
     }
     // game loop ending
     console.log(guesses);

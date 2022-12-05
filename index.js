@@ -11,26 +11,14 @@
 // button to play game
 const btn = document.querySelector('.btn').addEventListener('click', playGame);
 
-// only using this short array, could be more words, can change this if needed, could also use an api with words too fetch from
+// only using this short array, could be more words, could also use an api with words too fetch from
 const wordsArr = [
-  'gamer',
-  'coder',
-  'player',
-  'javascript',
-  'arrays',
-  'state',
   'css',
-  'coding',
-  'programming',
-  'agile',
-  'developer',
+  'try',
+  'new',
+  'way',
   'node',
-  'postman',
-  'react',
   'next',
-  'wordpress',
-  'hyper',
-  'education',
   'word',
   'code',
   'home',
@@ -54,11 +42,33 @@ const wordsArr = [
   'wife',
   'file',
   'mile',
+  'style',
+  'dance',
+  'state',
+  'react',
+  'hyper',
+  'gamer',
+  'coder',
+  'agile',
+  'fresh',
+  'editor',
+  'folder',
+  'animal',
+  'arrays',
+  'coding',
+  'player',
+  'culture',
+  'postman',
+  'wordpress',
+  'developer',
+  'education',
+  'javascript',
+  'programming',
 ];
 
 // creating the game loop
 function playGame() {
-  // get a random word from the words array
+  // get a random word from the words array, one const ;)
   const secretWord = wordsArr[Math.floor(Math.random() * wordsArr.length)];
   // Declaring variable for player Guess
   let playerGuess;
@@ -94,8 +104,6 @@ also show progress of the word if guess is right */
   );
 
   while (remainingLetters > 0 && guesses > 0) {
-    // create a variable for boolean to later add true or false for guesses control
-    let guessIsMatch;
     // regex to check if input is number or letter
     var regexCheckNumber = /^[0-9]+$/;
     var regexCheckLetter = /^[a-öA-Ö]+$/;
@@ -118,8 +126,6 @@ also show progress of the word if guess is right */
           answerArr[j] = playerGuess;
           // decrease remaining letters in the word
           remainingLetters--;
-          // guess is match so guesses remains
-          guessIsMatch = 'match';
         }
       }
     } else if (playerGuess === null || playerGuess === '') {
@@ -143,7 +149,6 @@ also show progress of the word if guess is right */
     } else {
       // update the game progress guess is match to no match and -1 on guesses
       // also push the letter that is not included in the word to used letters array
-      guessIsMatch = 'nomatch';
       guesses--;
       usedLetters.push(playerGuess);
     }
@@ -156,9 +161,9 @@ also show progress of the word if guess is right */
       'Game over \nSorry You have no more guesses: ' +
         guesses +
         '\nThe word was: ' +
-        secretWord +
+        secretWord.toUpperCase() +
         '\nYour guess progress ' +
-        answerArr.join(' ')
+        answerArr.join(' ').toUpperCase()
     );
   } else if (quitGame === true) {
     alert("Sad You diden't want to continue, \nHave a great day! :D");
@@ -166,7 +171,7 @@ also show progress of the word if guess is right */
     alert(
       'YOU WIN!' +
         '\nGood job buddy! The answer was ' +
-        secretWord +
+        secretWord.toUpperCase() +
         '\nYour guess was: ' +
         answerArr.join('').toUpperCase()
     );

@@ -64,7 +64,7 @@ Have to get better at creating more functions for the different parts of the pro
 ---
 
 ## What is Javascript?
-Javascript is a so-called low-level language and it runs in the browser by compiling the code via javascript engine. This makes it possible for computers to read J's code and then display the content in our browsers.
+Javascript is a so-called lightweight, interpreted, or just-in-time compiled programming language and it runs in the browser by compiling the code via javascript engine. This makes it possible for computers to read J's code and then display the content in our browsers.
 V8 is chrome's compiler or data language translator, while e.g
 spidermonkey is firefox, almost all browsers have their own js
 translators but they are all very similar, some better and more compatible than others.
